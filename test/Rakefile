@@ -1,0 +1,6 @@
+require_relative '../lib/ebookbinder/epub3'
+
+Epub3.setup do |e|
+  e.author = 'Jan Friedrich'
+  e.title = 'My book'
+end
