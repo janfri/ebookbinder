@@ -1,5 +1,6 @@
 # -- encoding: utf-8 --
 require 'digest/md5'
+require 'nokogiri'
 require 'rake'
 require 'rake/clean'
 require 'singleton'
@@ -11,7 +12,7 @@ class Epub3
 
   attr_accessor :author, :id, :language, :title
   attr_accessor :epub_dir, :epub_filename, :html_dir, :mimetype_filename
-  attr_reader :oepbs_dir
+  attr_reader :oepbs_dir, :meta_inf_dir
   attr_accessor :task_defs
 
   def self.setup
@@ -49,6 +50,7 @@ class Epub3
     @html_dir ||= 'html'
     @epub_dir ||= 'epub'
     @oepbs_dir = File.join(@epub_dir, 'OEPBS')
+    @meta_inf_dir = File.join(@epub_dir, 'META-INF')
     @epub_filename ||= format('%s - %s.epub', @author, @title)
   end
 
@@ -59,6 +61,48 @@ class Epub3
   def generate_mimetype_file
     puts "generate #{mimetype_filename}" if verbose
     File.write(mimetype_filename, 'application/epub+zip')
+  end
+
+  def container_filename
+    File.join(@meta_inf_dir, 'container.xml')
+  end
+
+  def generate_container_file
+    puts "generate #{container_filename}" if verbose
+    builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
+      xml.container(version: '1.0', xmlns: 'urn:oasis:names:tc:opendocument:xmlns:container') {
+        xml.rootfiles {
+          xml.rootfile('full-path': content_filename.sub(%r(^#{epub_dir}/?), ''), 'media-type': 'application/oebps-package+xml')
+        }
+      }
+    end
+    File.write(container_filename, builder.to_xml)
+  end
+
+  def content_filename
+    File.join(@epub_dir, 'content.opf')
+  end
+
+  def generate_content_file
+    puts "generate #{content_filename}" if verbose
+    builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
+      xml.package(xmlns: "http://www.idpf.org/2007/opf", 'unique-identifier': 'pub-id', version: '3.0', 'xml:lang': language) {
+        xml.metadata('xmlns:dc': 'http://purl.org/dc/elements/1.1/', 'xmlns:dcterms': 'http://purl.org/dc/terms/',
+                     'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', 'xmlns:opf': 'http://www.idpf.org/2007/opf') {
+          xml['dc'].identifier(id, id: 'pub-id')
+          xml['dc'].title title
+          xml['dc'].language language
+        }
+                     xml.manifest {
+                       FileList.new(File.join(oepbs_dir, '**/*')).each do |fn|
+                         next if File.directory?(fn)
+                         fn_rel = fn.sub(%r(^#{epub_dir}/?), '')
+                         xml.item(id: "id-#{fn_rel}", href: fn_rel)
+                       end
+                     }
+      }
+    end
+    File.write(content_filename, builder.to_xml)
   end
 
   def define_tasks
@@ -78,6 +122,7 @@ Epub3.define_tasks do
 
     directory epub_dir
     directory oepbs_dir
+    directory meta_inf_dir
 
     source_filenames = FileList.new(File.join(html_dir, '**/*')).select {|fn| !File.directory?(fn)}
 
@@ -94,7 +139,15 @@ Epub3.define_tasks do
       generate_mimetype_file
     end
 
-    all_filenames = [mimetype_filename, content_filenames].flatten
+    file container_filename => meta_inf_dir do
+      generate_container_file
+    end
+
+    file content_filename => [epub_dir, content_filenames].flatten do
+      generate_content_file
+    end
+
+    all_filenames = [mimetype_filename, container_filename, content_filenames, content_filename].flatten
 
     desc "Build '#{epub_filename}'"
     task :build => all_filenames
