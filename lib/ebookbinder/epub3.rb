@@ -149,7 +149,15 @@ Epub3.define_tasks do
 
     all_filenames = [mimetype_filename, container_filename, content_filenames, content_filename].flatten
 
-    task :build => all_filenames
+    file epub_filename => all_filenames do
+      root = Dir.pwd
+      epub_filename_fullpath = File.join(root, epub_filename)
+      cd epub_dir do
+        sh "zip -Xr9D \"#{epub_filename_fullpath}\" mimetype *"
+      end
+    end
+
+    task :build => epub_filename
 
   end
 
