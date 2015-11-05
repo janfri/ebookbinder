@@ -94,10 +94,12 @@ class Epub3
           xml['dc'].language language
         end
         xml.manifest do
+          i = 0
           FileList.new(File.join(oepbs_dir, '**/*')).each do |fn|
             next if File.directory?(fn)
+            i += 1
             fn_rel = fn.sub(%r(^#{epub_dir}/?), '')
-            xml.item(id: "id-#{fn_rel}", href: fn_rel)
+            xml.item(id: format('id_%04d', i), href: fn_rel)
           end
         end
       end
