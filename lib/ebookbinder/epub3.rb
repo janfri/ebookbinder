@@ -70,11 +70,11 @@ class Epub3
   def generate_container_file
     puts "generate #{container_filename}" if verbose
     builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-      xml.container(version: '1.0', xmlns: 'urn:oasis:names:tc:opendocument:xmlns:container') {
-        xml.rootfiles {
+      xml.container(version: '1.0', xmlns: 'urn:oasis:names:tc:opendocument:xmlns:container') do
+        xml.rootfiles do
           xml.rootfile('full-path': content_filename.sub(%r(^#{epub_dir}/?), ''), 'media-type': 'application/oebps-package+xml')
-        }
-      }
+        end
+      end
     end
     File.write(container_filename, builder.to_xml)
   end
@@ -86,21 +86,21 @@ class Epub3
   def generate_content_file
     puts "generate #{content_filename}" if verbose
     builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-      xml.package(xmlns: "http://www.idpf.org/2007/opf", 'unique-identifier': 'pub-id', version: '3.0', 'xml:lang': language) {
+      xml.package(xmlns: "http://www.idpf.org/2007/opf", 'unique-identifier': 'pub-id', version: '3.0', 'xml:lang': language) do
         xml.metadata('xmlns:dc': 'http://purl.org/dc/elements/1.1/', 'xmlns:dcterms': 'http://purl.org/dc/terms/',
-                     'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', 'xmlns:opf': 'http://www.idpf.org/2007/opf') {
+                     'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', 'xmlns:opf': 'http://www.idpf.org/2007/opf') do
           xml['dc'].identifier(id, id: 'pub-id')
           xml['dc'].title title
           xml['dc'].language language
-        }
-                     xml.manifest {
-                       FileList.new(File.join(oepbs_dir, '**/*')).each do |fn|
-                         next if File.directory?(fn)
-                         fn_rel = fn.sub(%r(^#{epub_dir}/?), '')
-                         xml.item(id: "id-#{fn_rel}", href: fn_rel)
-                       end
-                     }
-      }
+        end
+        xml.manifest do
+          FileList.new(File.join(oepbs_dir, '**/*')).each do |fn|
+            next if File.directory?(fn)
+            fn_rel = fn.sub(%r(^#{epub_dir}/?), '')
+            xml.item(id: "id-#{fn_rel}", href: fn_rel)
+          end
+        end
+      end
     end
     File.write(content_filename, builder.to_xml)
   end
