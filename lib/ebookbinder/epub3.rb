@@ -149,11 +149,13 @@ Epub3.define_tasks do
 
     all_filenames = [mimetype_filename, container_filename, content_filenames, content_filename].flatten
 
-    desc "Build '#{epub_filename}'"
     task :build => all_filenames
 
   end
 
+  desc 'Build ebook file(s)'
   task :build => 'epub3:build'
+
+  task :default => :build
 
 end
