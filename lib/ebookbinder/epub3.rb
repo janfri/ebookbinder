@@ -1,9 +1,12 @@
 # -- encoding: utf-8 --
+require 'date'
 require 'digest/md5'
 require 'nokogiri'
 require 'rake'
 require 'rake/clean'
 require 'singleton'
+
+require_relative '../ebookbinder'
 
 class Epub3
 
@@ -92,6 +95,7 @@ class Epub3
           xml['dc'].identifier(id, id: 'pub-id')
           xml['dc'].title title
           xml['dc'].language language
+          xml.meta(Time.now.utc.to_datetime.to_s.sub(/\+00:00$/, 'Z'), property: 'dcterms:modified')
         end
         xml.manifest do
           i = 0
@@ -99,7 +103,7 @@ class Epub3
             next if File.directory?(fn)
             i += 1
             fn_rel = fn.sub(%r(^#{epub_dir}/?), '')
-            xml.item(id: format('id_%04d', i), href: fn_rel)
+            xml.item(id: format('id_%04d', i), href: fn_rel, 'media-type' => Ebookbinder.mimetype_for_filename(fn))
           end
         end
       end
