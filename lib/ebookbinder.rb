@@ -25,4 +25,4 @@ module Ebookbinder
 
 end
 
-
+include Ebookbinder
