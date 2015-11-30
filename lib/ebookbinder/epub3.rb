@@ -107,6 +107,15 @@ module Ebookbinder
               xml.item(id: format('id_%04d', i), href: fn_rel, 'media-type' => Ebookbinder.mimetype_for_filename(fn))
             end
           end
+          xml.spine do
+            i = 0
+            content_filenames.each do |fn|
+              i += 1
+              next unless Ebookbinder.mimetype_for_filename(fn) == 'text/html'
+              fn_rel = fn.sub(%r(^#{epub_dir}/?), '')
+              xml.itemref(idref: format('id_%04d', i))
+            end
+          end
         end
       end
       File.write(content_filename, builder.to_xml)
