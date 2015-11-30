@@ -101,8 +101,7 @@ module Ebookbinder
           end
           xml.manifest do
             i = 0
-            FileList.new(File.join(oepbs_dir, '**/*')).each do |fn|
-              next if File.directory?(fn)
+            content_filenames.each do |fn|
               i += 1
               fn_rel = fn.sub(%r(^#{epub_dir}/?), '')
               xml.item(id: format('id_%04d', i), href: fn_rel, 'media-type' => Ebookbinder.mimetype_for_filename(fn))
@@ -119,6 +118,14 @@ module Ebookbinder
       end
     end
 
+    def content_filenames
+      source_filenames.sub(/^#{html_dir}/, oepbs_dir)
+    end
+
+    def source_filenames
+      FileList.new(File.join(html_dir, '**/*')).select {|fn| !File.directory?(fn)}.sort
+    end
+
   end
 
   Epub3.define_tasks do
@@ -132,9 +139,6 @@ module Ebookbinder
       directory oepbs_dir
       directory meta_inf_dir
 
-      source_filenames = FileList.new(File.join(html_dir, '**/*')).select {|fn| !File.directory?(fn)}
-
-      content_filenames = source_filenames.sub(/^#{html_dir}/, oepbs_dir)
       content_filenames.zip(source_filenames) do |cf, sf|
         td = File.dirname(cf)
         directory td
