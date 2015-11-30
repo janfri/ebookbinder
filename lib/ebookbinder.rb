@@ -26,3 +26,8 @@ module Ebookbinder
 end
 
 include Ebookbinder
+
+desc 'Build ebook file(s)'
+task :build
+
+task :default => :build

@@ -182,10 +182,7 @@ module Ebookbinder
 
     end
 
-    desc 'Build ebook file(s)'
     task :build => 'epub3:build'
-
-    task :default => :build
 
   end
 
