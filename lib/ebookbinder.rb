@@ -6,8 +6,8 @@ module Ebookbinder
   MIMETYPE_MAPPING = YAML.load <<-END
     css: text/css
     gif: image/gif
-    htm: application/html
-    html: application/html
+    htm: text/html
+    html: text/html
     jpe: image/jpeg
     jpeg: image/jpeg
     jpg: image/jpeg
