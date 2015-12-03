@@ -16,8 +16,8 @@ module Ebookbinder
     include Rake::DSL
 
     attr_accessor :author, :id, :language, :title
-    attr_accessor :epub_dir, :epub_filename, :html_dir, :mimetype_filename
-    attr_reader :oepbs_dir, :meta_inf_dir
+    attr_accessor :build_dir, :epub_filename, :src_dir, :mimetype_filename
+    attr_reader :epub_dir, :meta_inf_dir
     attr_accessor :task_defs
 
     def self.setup
@@ -52,11 +52,11 @@ module Ebookbinder
     def set_defaults
       @id ||= Digest::MD5.hexdigest(@title)
       @language ||= 'en'
-      @html_dir ||= 'html'
-      @epub_dir ||= 'epub'
-      @oepbs_dir = File.join(@epub_dir, 'OEPBS')
+      @src_dir ||= 'src'
+      @build_dir ||= 'build'
+      @epub_dir ||= File.join(@build_dir, 'epub3')
       @meta_inf_dir = File.join(@epub_dir, 'META-INF')
-      @epub_filename ||= format('%s - %s.epub', @author, @title)
+      @epub_filename ||= File.join(@build_dir, format('%s - %s.epub', @author, @title))
     end
 
     def mimetype_filename
@@ -128,11 +128,11 @@ module Ebookbinder
     end
 
     def content_filenames
-      source_filenames.sub(/^#{html_dir}/, oepbs_dir)
+      source_filenames.sub(/^#{src_dir}/, epub_dir)
     end
 
     def source_filenames
-      FileList.new(File.join(html_dir, '**/*')).select {|fn| !File.directory?(fn)}.sort
+      FileList.new(File.join(src_dir, '**/*')).select {|fn| !File.directory?(fn)}.sort
     end
 
   end
@@ -140,12 +140,12 @@ module Ebookbinder
   Epub3.define_tasks do
 
     CLEAN << epub_dir
-    CLOBBER << epub_filename
+    CLOBBER << build_dir << epub_filename
 
     namespace :epub3 do
 
+      directory build_dir
       directory epub_dir
-      directory oepbs_dir
       directory meta_inf_dir
 
       content_filenames.zip(source_filenames) do |cf, sf|
