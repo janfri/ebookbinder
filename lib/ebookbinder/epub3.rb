@@ -17,7 +17,7 @@ module Ebookbinder
 
     attr_accessor :author, :id, :language, :title
     attr_accessor :build_dir, :epub_filename, :src_dir, :mimetype_filename
-    attr_reader :epub_dir, :meta_inf_dir
+    attr_reader :epub_dir, :meta_inf_dir, :nav_filename
     attr_accessor :task_defs
 
     def self.setup
@@ -106,6 +106,8 @@ module Ebookbinder
               fn_rel = fn.sub(%r(^#{epub_dir}/?), '')
               xml.item(id: format('id_%04d', i), href: fn_rel, 'media-type' => Ebookbinder.mimetype_for_filename(fn))
             end
+            nav_fn_rel = nav_filename.sub(%r(^#{epub_dir}/?), '')
+            xml.item(id: 'nav', href: nav_fn_rel, 'media-type' => Ebookbinder.mimetype_for_filename(nav_filename), properties: 'nav')
           end
           xml.spine do
             i = 0
@@ -119,6 +121,25 @@ module Ebookbinder
         end
       end
       File.write(content_filename, builder.to_xml)
+    end
+
+    def nav_filename
+      File.join(@epub_dir, 'nav.xhtml')
+    end
+
+    def generate_nav_file
+      puts "generate #{nav_filename}"
+      builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
+        xml.html(xmlns: 'http://www.w3.org/1999/xhtml') do
+          xml.head
+          xml.body do
+            xml.nav('xmlns:epub' => 'http://www.idpf.org/2007/ops', 'epub:type' => 'toc', id: 'toc') do
+              xml.ol
+            end
+          end
+        end
+      end
+      File.write(nav_filename, builder.to_xml)
     end
 
     def define_tasks
@@ -168,7 +189,11 @@ module Ebookbinder
         generate_content_file
       end
 
-      all_filenames = [mimetype_filename, container_filename, content_filenames, content_filename].flatten
+      file nav_filename => [epub_dir, content_filenames].flatten do
+        generate_nav_file
+      end
+
+      all_filenames = [mimetype_filename, container_filename, content_filenames, content_filename, nav_filename].flatten
 
       file epub_filename => all_filenames do
         root = Dir.pwd
