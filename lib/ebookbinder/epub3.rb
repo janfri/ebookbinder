@@ -111,7 +111,7 @@ module Ebookbinder
             i = 0
             content_filenames.each do |fn|
               i += 1
-              next unless Ebookbinder.mimetype_for_filename(fn) == 'text/html'
+              next unless Ebookbinder.mimetype_for_filename(fn) == 'application/xhtml+xml'
               fn_rel = fn.sub(%r(^#{epub_dir}/?), '')
               xml.itemref(idref: format('id_%04d', i))
             end
