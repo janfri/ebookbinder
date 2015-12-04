@@ -103,18 +103,15 @@ module Ebookbinder
             i = 0
             content_filenames.each do |fn|
               i += 1
-              fn_rel = fn.sub(%r(^#{epub_dir}/?), '')
-              xml.item(id: format('id_%04d', i), href: fn_rel, 'media-type' => Ebookbinder.mimetype_for_filename(fn))
+              xml.item(id: format('id_%04d', i), href: href(fn), 'media-type' => Ebookbinder.mimetype_for_filename(fn))
             end
-            nav_fn_rel = nav_filename.sub(%r(^#{epub_dir}/?), '')
-            xml.item(id: 'nav', href: nav_fn_rel, 'media-type' => Ebookbinder.mimetype_for_filename(nav_filename), properties: 'nav')
+            xml.item(id: 'nav', href: href(nav_filename), 'media-type' => Ebookbinder.mimetype_for_filename(nav_filename), properties: 'nav')
           end
           xml.spine do
             i = 0
             content_filenames.each do |fn|
               i += 1
               next unless Ebookbinder.mimetype_for_filename(fn) == 'application/xhtml+xml'
-              fn_rel = fn.sub(%r(^#{epub_dir}/?), '')
               xml.itemref(idref: format('id_%04d', i))
             end
           end
@@ -154,6 +151,10 @@ module Ebookbinder
 
     def source_filenames
       FileList.new(File.join(src_dir, '**/*')).select {|fn| !File.directory?(fn)}.sort
+    end
+
+    def href filename, postfix=''
+      filename.sub(%r(^#{epub_dir}/?), '') << postfix
     end
 
   end
