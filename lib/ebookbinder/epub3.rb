@@ -131,7 +131,18 @@ module Ebookbinder
           xml.head
           xml.body do
             xml.nav('xmlns:epub' => 'http://www.idpf.org/2007/ops', 'epub:type' => 'toc', id: 'toc') do
-              xml.ol
+              xml.ol do
+                content_filenames.each do |fn|
+                  next unless Ebookbinder.mimetype_for_filename(fn) == 'application/xhtml+xml'
+                  Nokogiri.XML(File.read(fn)).search('h1').each do |e|
+                    if id = e.attribute('id')
+                      xml.li do
+                        xml.a(e.text, href: href(fn, '#' << id))
+                      end
+                    end
+                  end
+                end
+              end
             end
           end
         end
