@@ -137,7 +137,7 @@ module Ebookbinder
                   Nokogiri.XML(File.read(fn)).search('h1').each do |e|
                     if id = e.attribute('id')
                       xml.li do
-                        xml.a(e.text, href: href(fn, '#' << id))
+                        xml.a(e.text, href: href(fn, id))
                       end
                     end
                   end
@@ -164,8 +164,10 @@ module Ebookbinder
       FileList.new(File.join(src_dir, '**/*')).select {|fn| !File.directory?(fn)}.sort
     end
 
-    def href filename, postfix=''
-      filename.sub(%r(^#{epub_dir}/?), '') << postfix
+    def href filename, id=nil
+      res = filename.sub(%r(^#{epub_dir}/?), '')
+      res << '#' << id.to_s if id
+      res
     end
 
   end
