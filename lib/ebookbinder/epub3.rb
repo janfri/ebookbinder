@@ -1,53 +1,9 @@
 # -- encoding: utf-8 --
-require 'date'
-require 'digest/md5'
-require 'nokogiri'
-require 'rake'
-require 'rake/clean'
-require 'singleton'
-
-require_relative '../ebookbinder'
+require_relative 'epub_base'
 
 module Ebookbinder
 
-  class Epub3
-
-    include Singleton
-    include Rake::DSL
-
-    attr_accessor :author, :id, :language, :title
-    attr_accessor :build_dir, :epub_filename, :src_dir, :mimetype_filename
-    attr_reader :epub_dir, :meta_inf_dir, :nav_filename
-    attr_accessor :task_defs
-
-    def self.setup
-      instance.setup do |i|
-        yield i
-      end
-    end
-
-    def self.define_tasks &blk
-      instance.task_defs ||= []
-      instance.task_defs << blk
-    end
-
-    def setup
-      yield self
-      check_mandatory_values
-      set_defaults
-      define_tasks
-      self
-    end
-
-    private
-
-    def check_mandatory_values
-      %w(title author).each do |attr|
-        unless self.send(attr)
-          raise format('No value for %s given!', attr)
-        end
-      end
-    end
+  class Epub3 < EpubBase
 
     def set_defaults
       @id ||= Digest::MD5.hexdigest(@title)
@@ -57,35 +13,6 @@ module Ebookbinder
       @epub_dir ||= File.join(@build_dir, 'epub3')
       @meta_inf_dir = File.join(@epub_dir, 'META-INF')
       @epub_filename ||= File.join(@build_dir, format('%s - %s.epub', @author, @title))
-    end
-
-    def mimetype_filename
-      File.join(@epub_dir, 'mimetype')
-    end
-
-    def generate_mimetype_file
-      puts "generate #{mimetype_filename}" if verbose
-      File.write(mimetype_filename, 'application/epub+zip')
-    end
-
-    def container_filename
-      File.join(@meta_inf_dir, 'container.xml')
-    end
-
-    def generate_container_file
-      puts "generate #{container_filename}" if verbose
-      builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-        xml.container(version: '1.0', xmlns: 'urn:oasis:names:tc:opendocument:xmlns:container') do
-          xml.rootfiles do
-            xml.rootfile('full-path': content_filename.sub(%r(^#{epub_dir}/?), ''), 'media-type': 'application/oebps-package+xml')
-          end
-        end
-      end
-      File.write(container_filename, builder.to_xml)
-    end
-
-    def content_filename
-      File.join(@epub_dir, 'content.opf')
     end
 
     def generate_content_file
@@ -150,32 +77,12 @@ module Ebookbinder
       File.write(nav_filename, builder.to_xml)
     end
 
-    def define_tasks
-      Array(@task_defs).each do |blk|
-        instance_exec &blk
-      end
-    end
-
-    def content_filenames
-      source_filenames.sub(/^#{src_dir}/, epub_dir)
-    end
-
-    def source_filenames
-      FileList.new(File.join(src_dir, '**/*')).select {|fn| !File.directory?(fn)}.sort
-    end
-
-    def href filename, id=nil
-      res = filename.sub(%r(^#{epub_dir}/?), '')
-      res << '#' << id.to_s if id
-      res
-    end
-
   end
 
   Epub3.define_tasks do
 
-    CLEAN << epub_dir
-    CLOBBER << build_dir << epub_filename
+    ::CLEAN << epub_dir
+    ::CLOBBER << build_dir << epub_filename
 
     namespace :epub3 do
 
