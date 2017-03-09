@@ -69,7 +69,7 @@ module Ebookbinder
               Nokogiri.XML(File.read(fn)).search('h1').each do |e|
                 if id = e.attribute('id')
                   i +=1
-                  xml.navPoint id: id, playOrder: i do
+                  xml.navPoint id: format('id_%04d', i), playOrder: i do
                     xml.navLabel do
                       xml.text! e.text
                     end
