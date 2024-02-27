@@ -12,8 +12,7 @@ module Ebookbinder
     include Rake::DSL
 
     attr_accessor :author, :id, :language, :title
-    attr_accessor :build_dir, :epub_filename, :src_dir, :mimetype_filename
-    attr_reader :epub_dir, :meta_inf_dir, :nav_filename
+    attr_accessor :build_dir, :src_dir
     attr_accessor :task_defs
 
     def self.setup

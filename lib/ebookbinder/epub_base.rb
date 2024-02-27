@@ -9,6 +9,9 @@ module Ebookbinder
 
   class EpubBase < EbookBase
 
+    attr_accessor :epub_filename
+    attr_reader :epub_dir, :meta_inf_dir, :mimetype_filename, :nav_filename
+
     protected
 
     def check_mandatory_values
