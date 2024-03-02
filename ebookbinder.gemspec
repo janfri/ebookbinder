@@ -16,8 +16,11 @@ Gem::Specification.new do |s|
   s.description = ""
   s.email = "janfri26@gmail.com"
   s.files = ["Changelog", "Gemfile", "LICENSE", "README.md", "Rakefile", "ebookbinder.gemspec", "lib/ebookbinder.rb", "lib/ebookbinder/ebook_base.rb", "lib/ebookbinder/epub2.rb", "lib/ebookbinder/epub3.rb", "lib/ebookbinder/epub_base.rb", "lib/ebookbinder/version.rb", "test/epub2/Rakefile", "test/epub2/src/01.xhtml", "test/epub2/src/02.xhtml", "test/epub3/Rakefile", "test/epub3/src/01.xhtml", "test/epub3/src/02.xhtml"]
+  s.homepage = "https://github.com/janfri/ebookbinder"
+  s.licenses = ["MIT"]
+  s.post_install_message = "\n+-----------------------------------------------------------------------+\n| To run rake check you need epubcheck installed and accessible via     |\n| `epubcheck` on the command line.                                      |\n|                                                                       |\n| https://www.w3.org/publishing/epubcheck/                              |\n+-----------------------------------------------------------------------+\n  "
   s.rubygems_version = "3.6.0.dev"
-  s.summary = ""
+  s.summary = "This library should help to make ebooks as easy as possible. It interprets an XHTML structure and generate a corresponding ebook on base of easy asumptions."
 
   s.specification_version = 4
 
