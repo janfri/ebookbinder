@@ -1,8 +1,0 @@
-require_relative '../lib/ebookbinder/epub2'
-#require_relative '../lib/ebookbinder/epub3'
-
-Epub2.setup do |e|
-#Epub3.setup do |e|
-  e.author = 'Jan Friedrich'
-  e.title = 'My book'
-end
