@@ -138,6 +138,10 @@ module Ebookbinder
 
     task :build => 'epub2:build'
 
+    task :check => epub_filename do
+      sh 'epubcheck', epub_filename
+    end
+
   end
 
 end

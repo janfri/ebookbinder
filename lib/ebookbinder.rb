@@ -31,4 +31,7 @@ include Ebookbinder
 desc 'Build ebook file(s)'
 task :build
 
+desc 'Check ebook file(s)'
+task :check
+
 task :default => :build
