@@ -23,6 +23,7 @@ module Ebookbinder
                        'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', 'xmlns:opf': 'http://www.idpf.org/2007/opf') do
             xml['dc'].identifier(id, id: 'pub-id')
             xml['dc'].title title
+            xml['dc'].creator(@author, 'xml:lang' => language)
             xml['dc'].language language
             xml.meta(Time.now.utc.to_datetime.to_s.sub(/\+00:00$/, 'Z'), property: 'dcterms:modified')
           end
