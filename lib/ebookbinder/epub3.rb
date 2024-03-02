@@ -56,7 +56,9 @@ module Ebookbinder
       puts "generate #{nav_filename}"
       builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
         xml.html(xmlns: 'http://www.w3.org/1999/xhtml') do
-          xml.head
+          xml.head do
+            xml.title @title
+          end
           xml.body do
             xml.nav('xmlns:epub' => 'http://www.idpf.org/2007/ops', 'epub:type' => 'toc', id: 'toc') do
               xml.ol do
