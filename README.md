@@ -4,14 +4,14 @@
 ## Description
 
 This library should help to make ebooks as easy as possible.  It interprets an
-XHTML structure and generate a corresponding ebook on base of easy asumptions.
+XHTML structure and generate a corresponding ebook on base of easy assumptions.
 
 
 ## Requirements
 
 To use rake check it needs an actual version of
 [epubcheck](https://www.w3.org/publishing/epubcheck/) accessible on the
-commandline via `epubcheck`.
+command line via `epubcheck`.
 
 
 ## Versioning

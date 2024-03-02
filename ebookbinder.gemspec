@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.date = "2024-03-02"
   s.description = ""
   s.email = "janfri26@gmail.com"
-  s.files = ["Changelog", "Gemfile", "LICENSE", "README.md", "Rakefile", "ebookbinder.gemspec", "lib/ebookbinder.rb", "lib/ebookbinder/ebook_base.rb", "lib/ebookbinder/epub2.rb", "lib/ebookbinder/epub3.rb", "lib/ebookbinder/epub_base.rb", "lib/ebookbinder/version.rb", "test/epub2/Rakefile", "test/epub2/src/01.xhtml", "test/epub2/src/02.xhtml", "test/epub3/Rakefile", "test/epub3/src/01.xhtml", "test/epub3/src/02.xhtml"]
+  s.files = ["./.aspell.pws", "Changelog", "Gemfile", "LICENSE", "README.md", "Rakefile", "ebookbinder.gemspec", "lib/ebookbinder.rb", "lib/ebookbinder/ebook_base.rb", "lib/ebookbinder/epub2.rb", "lib/ebookbinder/epub3.rb", "lib/ebookbinder/epub_base.rb", "lib/ebookbinder/version.rb", "test/epub2/Rakefile", "test/epub2/src/01.xhtml", "test/epub2/src/02.xhtml", "test/epub3/Rakefile", "test/epub3/src/01.xhtml", "test/epub3/src/02.xhtml"]
   s.homepage = "https://github.com/janfri/ebookbinder"
   s.licenses = ["MIT"]
   s.post_install_message = "\n+-----------------------------------------------------------------------+\n| To run rake check you need epubcheck installed and accessible via     |\n| `epubcheck` on the command line.                                      |\n|                                                                       |\n| https://www.w3.org/publishing/epubcheck/                              |\n+-----------------------------------------------------------------------+\n  "
