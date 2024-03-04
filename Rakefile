@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'rim/tire'
+require 'rim/regtest'
 require 'rim/version'
 require_relative 'lib/ebookbinder/version'
 

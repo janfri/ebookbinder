@@ -1,0 +1,45 @@
+---
+sample: nav.xhtml
+result: |
+  <?xml version="1.0" encoding="UTF-8"?>
+  <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <title>Test Book in EPUB 3</title>
+    </head>
+    <body>
+      <nav xmlns:epub="http://www.idpf.org/2007/ops" epub:type="toc" id="toc">
+        <ol>
+          <li>
+            <a href="01.xhtml#id1">H1 number 1</a>
+          </li>
+          <li>
+            <a href="01.xhtml#id2">H1 number 2</a>
+          </li>
+          <li>
+            <a href="01.xhtml#id3">H1 number 3</a>
+          </li>
+          <li>
+            <a href="01.xhtml#id4">H1 number 4</a>
+          </li>
+          <li>
+            <a href="01.xhtml#id5">H1 number 5</a>
+          </li>
+          <li>
+            <a href="02.xhtml#id1">H1 number 1</a>
+          </li>
+          <li>
+            <a href="02.xhtml#id2">H1 number 2</a>
+          </li>
+          <li>
+            <a href="02.xhtml#id3">H1 number 3</a>
+          </li>
+          <li>
+            <a href="02.xhtml#id4">H1 number 4</a>
+          </li>
+          <li>
+            <a href="02.xhtml#id5">H1 number 5</a>
+          </li>
+        </ol>
+      </nav>
+    </body>
+  </html>
