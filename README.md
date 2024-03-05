@@ -7,6 +7,12 @@ This library should help to make ebooks as easy as possible.  It interprets an
 XHTML structure and generate a corresponding ebook on base of easy assumptions.
 
 
+## Usage
+
+To understand how Ebookbinder works have a look at the examples directory.
+There are examples of the actual implemented functionality.
+
+
 ## Requirements
 
 To use rake check it needs an actual version of
