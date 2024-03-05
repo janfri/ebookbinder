@@ -24,3 +24,5 @@ Rim.setup do |r|
   r.gem_files.exclude(/build/).exclude {|e| File.directory?(e)}
   r.test_files = FileList.new()
 end
+
+task :default => :regtest
