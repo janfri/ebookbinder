@@ -129,7 +129,7 @@ module Ebookbinder
         root = Dir.pwd
         epub_filename_fullpath = File.join(root, epub_filename)
         cd epub_dir do
-          sh "zip -Xr9D \"#{epub_filename_fullpath}\" mimetype *"
+          sh "zip -Xqr9D \"#{epub_filename_fullpath}\" mimetype *"
         end
       end
 

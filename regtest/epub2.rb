@@ -5,7 +5,7 @@ require 'regtest'
 EPUB2_DIR = File.join(__dir__,  '../test/epub2/build/epub2')
 
 Dir.chdir(EPUB2_DIR) do
-  system('rake clobber build')
+  system('rake -s clobber build')
 end
 
 %w(toc.ncx).each do |fn|

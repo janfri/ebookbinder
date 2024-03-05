@@ -53,7 +53,7 @@ module Ebookbinder
     end
 
     def generate_nav_file
-      puts "generate #{nav_filename}"
+      puts "generate #{nav_filename}" if verbose
       builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
         xml.html(xmlns: 'http://www.w3.org/1999/xhtml') do
           xml.head do
@@ -123,7 +123,7 @@ module Ebookbinder
         root = Dir.pwd
         epub_filename_fullpath = File.join(root, epub_filename)
         cd epub_dir do
-          sh "zip -Xr9D \"#{epub_filename_fullpath}\" mimetype *"
+          sh "zip -Xqr9D \"#{epub_filename_fullpath}\" mimetype *"
         end
       end
 

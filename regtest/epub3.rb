@@ -5,7 +5,7 @@ require 'regtest'
 EPUB3_DIR = File.join(__dir__,  '../test/epub3/build/epub3')
 
 Dir.chdir(EPUB3_DIR) do
-  system('rake clobber build')
+  system('rake -s clobber build')
 end
 
 %w(nav.xhtml).each do |fn|
