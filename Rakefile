@@ -21,8 +21,8 @@ Rim.setup do |r|
 | https://www.w3.org/publishing/epubcheck/                              |
 +-----------------------------------------------------------------------+
   }
-  r.gem_files.exclude(/build/).exclude {|e| File.directory?(e)}
-  r.test_files = FileList.new()
+  r.gem_files += FileList.new('examples/*/Rakefile', 'examples/*/src/**/*.*')
 end
 
+task :test => :regtest
 task :default => :regtest
