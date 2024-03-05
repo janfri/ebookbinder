@@ -1,7 +1,5 @@
 # encoding: utf-8
 require_relative '../ebookbinder'
-
-require 'rake/clean'
 require 'singleton'
 
 module Ebookbinder
