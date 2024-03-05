@@ -52,6 +52,7 @@ module Ebookbinder
     end
 
     def generate_ncx_file
+      puts "generate #{ncx_filename}" if verbose
       builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
         xml.ncx(xmlns: 'http://www.daisy.org/z3986/2005/ncx/', version: '2005-1') do
           xml.head do
