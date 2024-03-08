@@ -1,4 +1,25 @@
 ---
+sample: content.opf
+result: |
+  <?xml version="1.0" encoding="UTF-8"?>
+  <package xmlns="http://www.idpf.org/2007/opf" unique-identifier="pub-id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf">
+      <dc:identifier id="pub-id">79590ed992de79754671e01316da8f2a</dc:identifier>
+      <dc:title>Test Book in EPUB 2</dc:title>
+      <dc:creator xml:lang="en">Jan Friedrich</dc:creator>
+      <dc:language xsi:type="dcterms:RFC3066">en</dc:language>
+    </metadata>
+    <manifest>
+      <item id="id_0001" href="01.xhtml" media-type="application/xhtml+xml"/>
+      <item id="id_0002" href="02.xhtml" media-type="application/xhtml+xml"/>
+      <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    </manifest>
+    <spine toc="ncx">
+      <itemref idref="id_0001"/>
+      <itemref idref="id_0002"/>
+    </spine>
+  </package>
+---
 sample: toc.ncx
 result: |
   <?xml version="1.0" encoding="UTF-8"?>

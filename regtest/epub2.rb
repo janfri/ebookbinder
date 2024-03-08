@@ -8,7 +8,7 @@ Dir.chdir(EPUB2_DIR) do
   system('rake -s clobber build')
 end
 
-%w(toc.ncx).each do |fn|
+%w(content.opf toc.ncx).each do |fn|
 
   Regtest.sample fn do
     File.read File.join(EPUB2_DIR, fn)

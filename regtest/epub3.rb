@@ -8,10 +8,10 @@ Dir.chdir(EPUB3_DIR) do
   system('rake -s clobber build')
 end
 
-%w(nav.xhtml).each do |fn|
+%w(content.opf nav.xhtml).each do |fn|
 
   Regtest.sample fn do
-    File.read File.join(EPUB3_DIR, fn)
+    File.read(File.join(EPUB3_DIR, fn)).gsub(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/, 'YYYY-mm-ddTHH:MM:SS')
   end
 
 end
