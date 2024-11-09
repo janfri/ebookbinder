@@ -39,24 +39,264 @@ result: |
           <text>Header 1 number 1</text>
         </navLabel>
         <content src="01.xhtml#id1"/>
+        <navPoint id="id_0002" playOrder="2">
+          <navLabel>
+            <text>Header 2 number 1</text>
+          </navLabel>
+          <content src="01.xhtml#id2"/>
+          <navPoint id="id_0003" playOrder="3">
+            <navLabel>
+              <text>Header 3 number 1</text>
+            </navLabel>
+            <content src="01.xhtml#id3"/>
+            <navPoint id="id_0004" playOrder="4">
+              <navLabel>
+                <text>Header 4 number 1</text>
+              </navLabel>
+              <content src="01.xhtml#id4"/>
+            </navPoint>
+            <navPoint id="id_0005" playOrder="5">
+              <navLabel>
+                <text>Header 4 number 2</text>
+              </navLabel>
+              <content src="01.xhtml#id5"/>
+            </navPoint>
+          </navPoint>
+          <navPoint id="id_0006" playOrder="6">
+            <navLabel>
+              <text>Header 3 number 2</text>
+            </navLabel>
+            <content src="01.xhtml#id6"/>
+            <navPoint id="id_0007" playOrder="7">
+              <navLabel>
+                <text>Header 4 number 3</text>
+              </navLabel>
+              <content src="01.xhtml#id7"/>
+            </navPoint>
+            <navPoint id="id_0008" playOrder="8">
+              <navLabel>
+                <text>Header 4 number 4</text>
+              </navLabel>
+              <content src="01.xhtml#id8"/>
+            </navPoint>
+          </navPoint>
+        </navPoint>
+        <navPoint id="id_0009" playOrder="9">
+          <navLabel>
+            <text>Header 2 number 2</text>
+          </navLabel>
+          <content src="01.xhtml#id9"/>
+          <navPoint id="id_0010" playOrder="10">
+            <navLabel>
+              <text>Header 3 number 3</text>
+            </navLabel>
+            <content src="01.xhtml#id10"/>
+            <navPoint id="id_0011" playOrder="11">
+              <navLabel>
+                <text>Header 4 number 5</text>
+              </navLabel>
+              <content src="01.xhtml#id11"/>
+            </navPoint>
+            <navPoint id="id_0012" playOrder="12">
+              <navLabel>
+                <text>Header 4 number 6</text>
+              </navLabel>
+              <content src="01.xhtml#id12"/>
+            </navPoint>
+          </navPoint>
+          <navPoint id="id_0013" playOrder="13">
+            <navLabel>
+              <text>Header 3 number 4</text>
+            </navLabel>
+            <content src="01.xhtml#id13"/>
+            <navPoint id="id_0014" playOrder="14">
+              <navLabel>
+                <text>Header 4 number 7</text>
+              </navLabel>
+              <content src="01.xhtml#id14"/>
+            </navPoint>
+            <navPoint id="id_0015" playOrder="15">
+              <navLabel>
+                <text>Header 4 number 8</text>
+              </navLabel>
+              <content src="01.xhtml#id15"/>
+            </navPoint>
+          </navPoint>
+        </navPoint>
       </navPoint>
-      <navPoint id="id_0002" playOrder="2">
+      <navPoint id="id_0016" playOrder="16">
         <navLabel>
           <text>Header 1 number 2</text>
         </navLabel>
         <content src="01.xhtml#id16"/>
+        <navPoint id="id_0017" playOrder="17">
+          <navLabel>
+            <text>Header 2 number 3</text>
+          </navLabel>
+          <content src="01.xhtml#id17"/>
+          <navPoint id="id_0018" playOrder="18">
+            <navLabel>
+              <text>Header 3 number 5</text>
+            </navLabel>
+            <content src="01.xhtml#id18"/>
+            <navPoint id="id_0019" playOrder="19">
+              <navLabel>
+                <text>Header 4 number 9</text>
+              </navLabel>
+              <content src="01.xhtml#id19"/>
+            </navPoint>
+            <navPoint id="id_0020" playOrder="20">
+              <navLabel>
+                <text>Header 4 number 10</text>
+              </navLabel>
+              <content src="01.xhtml#id20"/>
+            </navPoint>
+          </navPoint>
+          <navPoint id="id_0021" playOrder="21">
+            <navLabel>
+              <text>Header 3 number 6</text>
+            </navLabel>
+            <content src="01.xhtml#id21"/>
+            <navPoint id="id_0022" playOrder="22">
+              <navLabel>
+                <text>Header 4 number 11</text>
+              </navLabel>
+              <content src="01.xhtml#id22"/>
+            </navPoint>
+            <navPoint id="id_0023" playOrder="23">
+              <navLabel>
+                <text>Header 4 number 12</text>
+              </navLabel>
+              <content src="01.xhtml#id23"/>
+            </navPoint>
+          </navPoint>
+        </navPoint>
+        <navPoint id="id_0024" playOrder="24">
+          <navLabel>
+            <text>Header 2 number 4</text>
+          </navLabel>
+          <content src="01.xhtml#id24"/>
+          <navPoint id="id_0025" playOrder="25">
+            <navLabel>
+              <text>Header 3 number 7</text>
+            </navLabel>
+            <content src="01.xhtml#id25"/>
+            <navPoint id="id_0026" playOrder="26">
+              <navLabel>
+                <text>Header 4 number 13</text>
+              </navLabel>
+              <content src="01.xhtml#id26"/>
+            </navPoint>
+            <navPoint id="id_0027" playOrder="27">
+              <navLabel>
+                <text>Header 4 number 14</text>
+              </navLabel>
+              <content src="01.xhtml#id27"/>
+            </navPoint>
+          </navPoint>
+          <navPoint id="id_0028" playOrder="28">
+            <navLabel>
+              <text>Header 3 number 8</text>
+            </navLabel>
+            <content src="01.xhtml#id28"/>
+            <navPoint id="id_0029" playOrder="29">
+              <navLabel>
+                <text>Header 4 number 15</text>
+              </navLabel>
+              <content src="01.xhtml#id29"/>
+            </navPoint>
+            <navPoint id="id_0030" playOrder="30">
+              <navLabel>
+                <text>Header 4 number 16</text>
+              </navLabel>
+              <content src="01.xhtml#id30"/>
+            </navPoint>
+          </navPoint>
+        </navPoint>
       </navPoint>
-      <navPoint id="id_0003" playOrder="3">
+      <navPoint id="id_0031" playOrder="31">
         <navLabel>
           <text>Header 1 number 1</text>
         </navLabel>
         <content src="02.xhtml#id1"/>
+        <navPoint id="id_0032" playOrder="32">
+          <navLabel>
+            <text>Header 2 number 1</text>
+          </navLabel>
+          <content src="02.xhtml#id2"/>
+          <navPoint id="id_0033" playOrder="33">
+            <navLabel>
+              <text>Header 3 number 1</text>
+            </navLabel>
+            <content src="02.xhtml#id3"/>
+          </navPoint>
+          <navPoint id="id_0034" playOrder="34">
+            <navLabel>
+              <text>Header 3 number 2</text>
+            </navLabel>
+            <content src="02.xhtml#id4"/>
+          </navPoint>
+        </navPoint>
+        <navPoint id="id_0035" playOrder="35">
+          <navLabel>
+            <text>Header 2 number 2</text>
+          </navLabel>
+          <content src="02.xhtml#id5"/>
+          <navPoint id="id_0036" playOrder="36">
+            <navLabel>
+              <text>Header 3 number 3</text>
+            </navLabel>
+            <content src="02.xhtml#id6"/>
+          </navPoint>
+          <navPoint id="id_0037" playOrder="37">
+            <navLabel>
+              <text>Header 3 number 4</text>
+            </navLabel>
+            <content src="02.xhtml#id7"/>
+          </navPoint>
+        </navPoint>
       </navPoint>
-      <navPoint id="id_0004" playOrder="4">
+      <navPoint id="id_0038" playOrder="38">
         <navLabel>
           <text>Header 1 number 2</text>
         </navLabel>
         <content src="02.xhtml#id8"/>
+        <navPoint id="id_0039" playOrder="39">
+          <navLabel>
+            <text>Header 2 number 3</text>
+          </navLabel>
+          <content src="02.xhtml#id9"/>
+          <navPoint id="id_0040" playOrder="40">
+            <navLabel>
+              <text>Header 3 number 5</text>
+            </navLabel>
+            <content src="02.xhtml#id10"/>
+          </navPoint>
+          <navPoint id="id_0041" playOrder="41">
+            <navLabel>
+              <text>Header 3 number 6</text>
+            </navLabel>
+            <content src="02.xhtml#id11"/>
+          </navPoint>
+        </navPoint>
+        <navPoint id="id_0042" playOrder="42">
+          <navLabel>
+            <text>Header 2 number 4</text>
+          </navLabel>
+          <content src="02.xhtml#id12"/>
+          <navPoint id="id_0043" playOrder="43">
+            <navLabel>
+              <text>Header 3 number 7</text>
+            </navLabel>
+            <content src="02.xhtml#id13"/>
+          </navPoint>
+          <navPoint id="id_0044" playOrder="44">
+            <navLabel>
+              <text>Header 3 number 8</text>
+            </navLabel>
+            <content src="02.xhtml#id14"/>
+          </navPoint>
+        </navPoint>
       </navPoint>
     </navMap>
   </ncx>

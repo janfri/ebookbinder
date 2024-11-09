@@ -65,6 +65,38 @@ module Ebookbinder
       res
     end
 
+    private
+
+    def create_header_struct fn
+      res = []
+      last_h1 = last_h2 = last_h3 = last_h4 = last_h5 = last_h6 = nil
+      Nokogiri.XML(File.read(fn)).search('h1,h2,h3,h4,h5,h6').each do |e|
+        if id = e.attribute('id')
+          case e.name
+          when 'h1'
+            last_h1 = [e, []]
+            res << last_h1
+          when 'h2'
+            last_h2 = [e, []]
+            last_h1.last << last_h2
+          when 'h3'
+            last_h3 = [e, []]
+            last_h2.last << last_h3
+          when 'h4'
+            last_h4 = [e, []]
+            last_h3.last << last_h4
+          when 'h5'
+            last_h5 = [e, []]
+            last_h4.last << last_h5
+          when 'h6'
+            last_h6 = [e, []]
+            last_h5.last << last_h6
+          end
+        end
+      end
+      res
+    end
+
   end
 
 end

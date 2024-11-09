@@ -64,26 +64,32 @@ module Ebookbinder
           xml.docTitle do
             xml.text! title
           end
+          i = 1
           xml.navMap do
-            i = 0
             content_filenames.each do |fn|
               next unless Ebookbinder.mimetype_for_filename(fn) == 'application/xhtml+xml'
-              Nokogiri.XML(File.read(fn)).search('h1').each do |e|
-                if id = e.attribute('id')
-                  i +=1
-                  xml.navPoint id: format('id_%04d', i), playOrder: i do
-                    xml.navLabel do
-                      xml.text! e.text
-                    end
-                    xml.content src: href(fn, id)
-                  end
-                end
-              end
+              h_struct = create_header_struct(fn)
+              i = create_navpoints(fn, xml, h_struct, i)
             end
           end
         end
       end
       File.write(ncx_filename, builder.to_xml)
+    end
+
+    def create_navpoints fn, xml, h_struct, i
+      h_struct.each do |entry|
+        e, children = entry
+        id = e.attribute('id')
+        xml.navPoint id: format('id_%04d', i), playOrder: i do
+          xml.navLabel do
+            xml.text! e.text
+          end
+          xml.content src: href(fn, id)
+          i = create_navpoints(fn, xml, children, i + 1)
+        end
+      end
+      i
     end
 
   end

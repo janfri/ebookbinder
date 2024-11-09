@@ -33,15 +33,175 @@ result: |
         <ol>
           <li>
             <a href="01.xhtml#id1">Header 1 number 1</a>
+            <ol>
+              <li>
+                <a href="01.xhtml#id2">Header 2 number 1</a>
+                <ol>
+                  <li>
+                    <a href="01.xhtml#id3">Header 3 number 1</a>
+                    <ol>
+                      <li>
+                        <a href="01.xhtml#id4">Header 4 number 1</a>
+                      </li>
+                      <li>
+                        <a href="01.xhtml#id5">Header 4 number 2</a>
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    <a href="01.xhtml#id6">Header 3 number 2</a>
+                    <ol>
+                      <li>
+                        <a href="01.xhtml#id7">Header 4 number 3</a>
+                      </li>
+                      <li>
+                        <a href="01.xhtml#id8">Header 4 number 4</a>
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <a href="01.xhtml#id9">Header 2 number 2</a>
+                <ol>
+                  <li>
+                    <a href="01.xhtml#id10">Header 3 number 3</a>
+                    <ol>
+                      <li>
+                        <a href="01.xhtml#id11">Header 4 number 5</a>
+                      </li>
+                      <li>
+                        <a href="01.xhtml#id12">Header 4 number 6</a>
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    <a href="01.xhtml#id13">Header 3 number 4</a>
+                    <ol>
+                      <li>
+                        <a href="01.xhtml#id14">Header 4 number 7</a>
+                      </li>
+                      <li>
+                        <a href="01.xhtml#id15">Header 4 number 8</a>
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+            </ol>
           </li>
           <li>
             <a href="01.xhtml#id16">Header 1 number 2</a>
+            <ol>
+              <li>
+                <a href="01.xhtml#id17">Header 2 number 3</a>
+                <ol>
+                  <li>
+                    <a href="01.xhtml#id18">Header 3 number 5</a>
+                    <ol>
+                      <li>
+                        <a href="01.xhtml#id19">Header 4 number 9</a>
+                      </li>
+                      <li>
+                        <a href="01.xhtml#id20">Header 4 number 10</a>
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    <a href="01.xhtml#id21">Header 3 number 6</a>
+                    <ol>
+                      <li>
+                        <a href="01.xhtml#id22">Header 4 number 11</a>
+                      </li>
+                      <li>
+                        <a href="01.xhtml#id23">Header 4 number 12</a>
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <a href="01.xhtml#id24">Header 2 number 4</a>
+                <ol>
+                  <li>
+                    <a href="01.xhtml#id25">Header 3 number 7</a>
+                    <ol>
+                      <li>
+                        <a href="01.xhtml#id26">Header 4 number 13</a>
+                      </li>
+                      <li>
+                        <a href="01.xhtml#id27">Header 4 number 14</a>
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    <a href="01.xhtml#id28">Header 3 number 8</a>
+                    <ol>
+                      <li>
+                        <a href="01.xhtml#id29">Header 4 number 15</a>
+                      </li>
+                      <li>
+                        <a href="01.xhtml#id30">Header 4 number 16</a>
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+            </ol>
           </li>
           <li>
             <a href="02.xhtml#id1">Header 1 number 1</a>
+            <ol>
+              <li>
+                <a href="02.xhtml#id2">Header 2 number 1</a>
+                <ol>
+                  <li>
+                    <a href="02.xhtml#id3">Header 3 number 1</a>
+                  </li>
+                  <li>
+                    <a href="02.xhtml#id4">Header 3 number 2</a>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <a href="02.xhtml#id5">Header 2 number 2</a>
+                <ol>
+                  <li>
+                    <a href="02.xhtml#id6">Header 3 number 3</a>
+                  </li>
+                  <li>
+                    <a href="02.xhtml#id7">Header 3 number 4</a>
+                  </li>
+                </ol>
+              </li>
+            </ol>
           </li>
           <li>
             <a href="02.xhtml#id8">Header 1 number 2</a>
+            <ol>
+              <li>
+                <a href="02.xhtml#id9">Header 2 number 3</a>
+                <ol>
+                  <li>
+                    <a href="02.xhtml#id10">Header 3 number 5</a>
+                  </li>
+                  <li>
+                    <a href="02.xhtml#id11">Header 3 number 6</a>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <a href="02.xhtml#id12">Header 2 number 4</a>
+                <ol>
+                  <li>
+                    <a href="02.xhtml#id13">Header 3 number 7</a>
+                  </li>
+                  <li>
+                    <a href="02.xhtml#id14">Header 3 number 8</a>
+                  </li>
+                </ol>
+              </li>
+            </ol>
           </li>
         </ol>
       </nav>

@@ -64,13 +64,8 @@ module Ebookbinder
               xml.ol do
                 content_filenames.each do |fn|
                   next unless Ebookbinder.mimetype_for_filename(fn) == 'application/xhtml+xml'
-                  Nokogiri.XML(File.read(fn)).search('h1').each do |e|
-                    if id = e.attribute('id')
-                      xml.li do
-                        xml.a(e.text, href: href(fn, id))
-                      end
-                    end
-                  end
+                  h_struct = create_header_struct(fn)
+                  create_li_entries(fn, xml, h_struct)
                 end
               end
             end
@@ -78,6 +73,21 @@ module Ebookbinder
         end
       end
       File.write(nav_filename, builder.to_xml)
+    end
+
+    def create_li_entries fn, xml, h_struct
+      h_struct.each do |entry|
+        e, children = entry
+        id = e.attribute('id')
+        xml.li do
+          xml.a(e.text, href: href(fn, id))
+          unless children.empty?
+            xml.ol do
+              create_li_entries(fn, xml, children)
+            end
+          end
+        end
+      end
     end
 
   end
