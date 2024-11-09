@@ -36,63 +36,27 @@ result: |
     <navMap>
       <navPoint id="id_0001" playOrder="1">
         <navLabel>
-          <text>H1 number 1</text>
+          <text>Header 1 number 1</text>
         </navLabel>
         <content src="01.xhtml#id1"/>
       </navPoint>
       <navPoint id="id_0002" playOrder="2">
         <navLabel>
-          <text>H1 number 2</text>
+          <text>Header 1 number 2</text>
         </navLabel>
-        <content src="01.xhtml#id2"/>
+        <content src="01.xhtml#id16"/>
       </navPoint>
       <navPoint id="id_0003" playOrder="3">
         <navLabel>
-          <text>H1 number 3</text>
-        </navLabel>
-        <content src="01.xhtml#id3"/>
-      </navPoint>
-      <navPoint id="id_0004" playOrder="4">
-        <navLabel>
-          <text>H1 number 4</text>
-        </navLabel>
-        <content src="01.xhtml#id4"/>
-      </navPoint>
-      <navPoint id="id_0005" playOrder="5">
-        <navLabel>
-          <text>H1 number 5</text>
-        </navLabel>
-        <content src="01.xhtml#id5"/>
-      </navPoint>
-      <navPoint id="id_0006" playOrder="6">
-        <navLabel>
-          <text>H1 number 1</text>
+          <text>Header 1 number 1</text>
         </navLabel>
         <content src="02.xhtml#id1"/>
       </navPoint>
-      <navPoint id="id_0007" playOrder="7">
+      <navPoint id="id_0004" playOrder="4">
         <navLabel>
-          <text>H1 number 2</text>
+          <text>Header 1 number 2</text>
         </navLabel>
-        <content src="02.xhtml#id2"/>
-      </navPoint>
-      <navPoint id="id_0008" playOrder="8">
-        <navLabel>
-          <text>H1 number 3</text>
-        </navLabel>
-        <content src="02.xhtml#id3"/>
-      </navPoint>
-      <navPoint id="id_0009" playOrder="9">
-        <navLabel>
-          <text>H1 number 4</text>
-        </navLabel>
-        <content src="02.xhtml#id4"/>
-      </navPoint>
-      <navPoint id="id_0010" playOrder="10">
-        <navLabel>
-          <text>H1 number 5</text>
-        </navLabel>
-        <content src="02.xhtml#id5"/>
+        <content src="02.xhtml#id8"/>
       </navPoint>
     </navMap>
   </ncx>

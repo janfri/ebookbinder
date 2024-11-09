@@ -32,34 +32,16 @@ result: |
       <nav xmlns:epub="http://www.idpf.org/2007/ops" epub:type="toc" id="toc">
         <ol>
           <li>
-            <a href="01.xhtml#id1">H1 number 1</a>
+            <a href="01.xhtml#id1">Header 1 number 1</a>
           </li>
           <li>
-            <a href="01.xhtml#id2">H1 number 2</a>
+            <a href="01.xhtml#id16">Header 1 number 2</a>
           </li>
           <li>
-            <a href="01.xhtml#id3">H1 number 3</a>
+            <a href="02.xhtml#id1">Header 1 number 1</a>
           </li>
           <li>
-            <a href="01.xhtml#id4">H1 number 4</a>
-          </li>
-          <li>
-            <a href="01.xhtml#id5">H1 number 5</a>
-          </li>
-          <li>
-            <a href="02.xhtml#id1">H1 number 1</a>
-          </li>
-          <li>
-            <a href="02.xhtml#id2">H1 number 2</a>
-          </li>
-          <li>
-            <a href="02.xhtml#id3">H1 number 3</a>
-          </li>
-          <li>
-            <a href="02.xhtml#id4">H1 number 4</a>
-          </li>
-          <li>
-            <a href="02.xhtml#id5">H1 number 5</a>
+            <a href="02.xhtml#id8">Header 1 number 2</a>
           </li>
         </ol>
       </nav>
