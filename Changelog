@@ -1,5 +1,8 @@
+1.1.0
+Generate hierarchical table of content from XHTML header elements.
+
 1.0.1
-Improve repository structure and add regtest.
+Improve repository structure.
 
 1.0.0
 First public release.
