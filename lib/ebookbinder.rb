@@ -13,11 +13,13 @@ module Ebookbinder
     jpe: image/jpeg
     jpeg: image/jpeg
     jpg: image/jpeg
+    otf: font/opentype
     png: image/png
     svg: image/svg+xml
     svgz: image/svg+xml
     ttc: application/x-font-ttf
     ttf: application/x-font-ttf
+    txt: text/plain
     xhtml: application/xhtml+xml
   END
 
