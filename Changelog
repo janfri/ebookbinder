@@ -1,3 +1,6 @@
+1.2.0
+Support font/opentype and text/plain as mime types.
+
 1.1.0
 Generate hierarchical table of content from XHTML header elements.
 
