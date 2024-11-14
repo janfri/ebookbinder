@@ -1,3 +1,5 @@
 # encoding: utf-8
 
-gem 'nokogiri'
+source 'https://rubygems.org'
+
+gemspec

@@ -24,6 +24,8 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.3'
 
+  s.add_dependency('nokogiri', '~> 1.16')
+
   s.add_development_dependency('rake', '>= 13.0')
   s.add_development_dependency('rim', '~> 3.0')
   s.add_development_dependency('regtest', '~> 2.4')
